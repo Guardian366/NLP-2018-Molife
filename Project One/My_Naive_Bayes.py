@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[25]:
+# In[2]:
 
 
 ### This is a Naive Bayes Classification Class
@@ -147,23 +147,16 @@ class MyNaiveBayes:
         with open(output) as m:
             for line in m.readlines():
                 mutupo = int(line)
-                columnOutput.append(mutupo)               
-
-
-# In[26]:
-
-
-classifier1 = MyNaiveBayes()
-classifier1.trainor(["./Project One/sentiment_labelled_sentences/amazon_cells_labelled.txt",
-                  "./Project One/sentiment_labelled_sentences/imdb_labelled.txt",
-                  "./Project One/sentiment_labelled_sentences/yelp_labelled.txt"],
+                columnOutput.append(mutupo)     
+                
+if __name__ == "__main__":
+    classifier1 = MyNaiveBayes()
+    classifier1.trainor(["./sentiment_labelled_sentences/amazon_cells_labelled.txt",
+                  "./sentiment_labelled_sentences/imdb_labelled.txt",
+                  "./sentiment_labelled_sentences/yelp_labelled.txt"],
                  test=True,
                  split_ratio=0.30)
-
-
-# In[28]:
-
-
-testing12 = "this is not good at all"
-classifier1.prediction(testing12)
+    testing = input("Enter file name: ")
+    prediction = classifier1.prediction(testing)
+    print(prediction)
 
